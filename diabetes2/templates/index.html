@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diabetes Prediction</title>
+</head>
+<body>
+    <h1>Diabetes Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="Pregnancies">Pregnancies:</label>
+        <input type="number" id="Pregnancies" name="Pregnancies" min="0" max="20" required><br><br>
+        <label for="Glucose">Glucose:</label>
+        <input type="number" id="Glucose" name="Glucose" min="0" max="200" required><br><br>
+        <label for="BloodPressure">BloodPressure:</label>
+        <input type="number" id="BloodPressure" name="BloodPressure" min="0" max="120" required><br><br>
+        <label for="SkinThickness">SkinThickness:</label>
+        <input type="number" id="SkinThickness" name="SkinThickness" min="0" max="100" required><br><br>
+        <label for="Insulin">Insulin:</label>
+        <input type="number" id="Insulin" name="Insulin" min="0" max="800" required><br><br>
+        <label for="BMI">BMI:</label>
+        <input type="number" id="BMI" name="BMI" min="0" max="60" required><br><br>
+        <label for="DiabetesPedigreeFunction">DiabetesPedigreeFunction:</label>
+        <input type="number" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction" min="0" max="2" step="0.01" required><br><br>
+        <label for="Age">Age:</label>
+        <input type="number" id="Age" name="Age" min="0" max="100" required><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+    <div id="prediction">
+        {% if prediction_result %}
+            <p>{{ prediction_result }}</p>
+        {% endif %}
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
